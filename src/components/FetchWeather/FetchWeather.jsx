@@ -7,7 +7,16 @@ function FetchWeather() {
 
     const fetchData = () => {
         console.log('in fetchData!');
-    }
+
+        axios.get('/weather')
+            .then(response => {
+                console.log('response:', response);
+                setResults(response);
+            })
+            .catch(err => {
+                console.log('err in fetching data:', err);
+            });
+    };
 
     useEffect(() => {
         fetchData();
@@ -16,6 +25,7 @@ function FetchWeather() {
     return(
         <>
             <h2 style={{ padding: 20 }}>Results...</h2>
+            {JSON.stringify(results)}
         </>
     )
 }
