@@ -1,4 +1,5 @@
 import React from 'react';
+import FetchWeather from '../FetchWeather/FetchWeather';
 import './App.css';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <h1>Open Weather API</h1>
       </header>
       
-      <p>Results go here</p>
+      <FetchWeather />
     </div>
   );
 }
