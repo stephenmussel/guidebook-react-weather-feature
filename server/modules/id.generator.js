@@ -10,4 +10,4 @@ function* getId() {
     }
 }
 
-module.exports = getId;
+module.exports = getId;``

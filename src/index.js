@@ -9,8 +9,8 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
 // Reducer that holds our results
-const random = (state = {}, action) => {
-    if(action.type === 'SET_RANDOM') {
+const weather = (state = {}, action) => {
+    if(action.type === 'SET_WEATHER') {
         return action.payload;
     }
     return state;
@@ -19,7 +19,7 @@ const random = (state = {}, action) => {
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
-        random,
+        weather,
     }),
     applyMiddleware(logger),
 );

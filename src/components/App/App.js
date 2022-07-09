@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <header className="App-header">
-        <h1>Random Giphy API</h1>
+        <h1>Open Weather API</h1>
       </header>
       
       <p>Results go here</p>
