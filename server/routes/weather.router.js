@@ -1,8 +1,9 @@
+const { default: axios } = require('axios');
 const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Hello World');
+    axios.get(``)
 })
 
 module.exports = router;
