@@ -1,34 +1,16 @@
-# Giphy API Activity
+# Open Weather API
 
-Using a third party API is very similar to using routes on a server. The big difference is that you'll likely get back much more data than you're used to. In this activity, you will be using Axios on the server to make requests to the Giphy API.
-
-For this project, the goal is to display a random image from Giphy along with a button that allows the user to see a new random image.
-
-## Setup
-
-1. Read through the [Giphy documentation](https://developers.giphy.com/) to determine which endpoints you need to complete this app.
-
-2. Register an account in order to get your `API Key`. This key is used for all of your requests to authenticate your app to Giphy.
-
-3. Create a `.env` file and add your API key.
-
-    `GIPHY_API_KEY=YOUR_KEY_GOES_HERE`
-
-4. Spin up your app:
-
-    - `npm install`
-    - `npm run server`
-    - `npm run client`
+The goal for this app is to provide the user with data that helps them decide whether it's a good day to rock climb. Data from Open Weather will be displayed along with a search feature that allows the user to search for a specific location.
 
 ## Task List
 
-- [ ] Make a `GET` request to Giphy from the `/random` router on your **server**, send the response from Giphy back to the client
-- [ ] Make a `GET` request from your **client** to your `/random` route, save the response data in Redux
-- [ ] Display the random gif on the page. Spend some time looking through the response! Some of the properties returned look like image paths but aren't.
-- [ ] Add a button that allows the user to refresh the results by making another `GET` request to `/random`
+- [ ] Make a `GET` request to Open Weather from the `/weather` router on your **server**, send the response from Open Weather back to the client
+- [ ] Make a `GET` request from your **client** to your `/weather` route, save the response data in Redux
+- [ ] Display the weather data on the page including: current temp, precip, humidity, and dew point.
 
 ## Stretch Goals
 
-- [ ] Implement some of the optional request parameters available when making the Giphy API request (for example, rating)
-- [ ] Add some inputs for the user to set things like rating and limit. You'll need to get these to your server and incorporated into your Giphy request!
+- [ ] Implement some of the optional request parameters available when making the Open Weather API request (for example, units)
+- [ ] Add an input and button for the user to search for a city. You'll need to get these to your server and incorporated into your Open Weather request!
+- [ ] Toggle button for metric vs imperial values
 - [ ] Style the page to make it look better
