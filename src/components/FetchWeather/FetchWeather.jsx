@@ -10,7 +10,7 @@ function FetchWeather() {
 
         axios.get('/weather')
             .then(response => {
-                console.log('response:', response.data);
+                console.log('response.data:', response.data);
                 setResults(response.data);
             })
             .catch(err => {

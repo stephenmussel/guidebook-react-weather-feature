@@ -4,11 +4,22 @@ import './index.css';
 import App from './components/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import axios from 'axios';
+
+// Redux-Saga
+import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put } from 'redux-saga/effects';
+
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-// Reducer that holds our results
+const sagaMiddleware = createSagaMiddleware();
+
+function* rootSaga() {
+
+}
+
 const weather = (state = {}, action) => {
     if(action.type === 'SET_WEATHER') {
         return action.payload;
@@ -16,14 +27,15 @@ const weather = (state = {}, action) => {
     return state;
 }
 
-// Create one store that all components can use
-const storeInstance = createStore(
+const store = createStore(
     combineReducers({
         weather,
     }),
     applyMiddleware(logger),
 );
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+sagaMiddleware.run(rootSaga);
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, 
     document.getElementById('root'));
 registerServiceWorker();
