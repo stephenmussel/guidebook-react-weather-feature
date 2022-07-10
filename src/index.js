@@ -24,8 +24,9 @@ function* rootSaga() {
 function* fetchSearch(action) {
     try {
         console.log('fetchSearch saga wired!');
+        const response = action.payload;
+        console.log('response:', response);
         
-
     } catch(err) {
         console.log('err in fetching search:', err);
         
