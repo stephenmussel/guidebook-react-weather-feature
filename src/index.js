@@ -23,14 +23,16 @@ function* rootSaga() {
 function* fetchWeather() {
     try {
         console.log('fetchWeather saga wired!');
-        
+
+        const response = yield axios.get('/weather');
+        console.log('response.data:', response.data);
+        const action = { type: 'SET_WEATHER', payload: response.data};
+        yield put(action);
 
     } catch(err) {
         console.log('err in fetching weather', err);
-        
     }
 }
-
 
 
 const weather = (state = [], action) => {
