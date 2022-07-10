@@ -31,7 +31,7 @@ const store = createStore(
     combineReducers({
         weather,
     }),
-    applyMiddleware(logger),
+    applyMiddleware(logger, sagaMiddleware),
 );
 
 sagaMiddleware.run(rootSaga);
