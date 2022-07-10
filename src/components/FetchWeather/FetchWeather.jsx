@@ -1,11 +1,10 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 function FetchWeather() {
 
-    const [results, setResults] = useState([]);
     const dispatch = useDispatch();
+    const weather = useSelector(store => store.weather);
 
     const fetchData = () => {
         console.log('in fetchData!');
@@ -17,10 +16,15 @@ function FetchWeather() {
         fetchData();
     }, [])
 
+
+    // TODO: calculate dew point with temp and humidity
     return(
         <div>
             <h2 style={{ padding: 20 }}>Results...</h2>
-          
+            {/* {JSON.stringify(weather)}
+            <p>temp: {weather.main.temp} &#176;F</p>
+            <p>precip: {weather.pop}%</p>
+            <p>humidity: {weather.main.humidity}%</p> */}
         </div>
     )
 }

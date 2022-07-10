@@ -1,6 +1,9 @@
 import React from 'react';
-import FetchWeather from '../FetchWeather/FetchWeather';
 import './App.css';
+
+// components
+import FetchWeather from '../FetchWeather/FetchWeather';
+import Search from '../Search/Search'
 
 function App() {
   // Renders the entire app on the DOM
@@ -11,6 +14,7 @@ function App() {
       </header>
       
       <FetchWeather />
+      <Search />
     </div>
   );
 }
