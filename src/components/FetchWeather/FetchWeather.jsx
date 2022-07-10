@@ -10,8 +10,8 @@ function FetchWeather() {
 
         axios.get('/weather')
             .then(response => {
-                console.log('response:', response);
-                setResults(response);
+                console.log('response:', response.data);
+                setResults(response.data);
             })
             .catch(err => {
                 console.log('err in fetching data:', err);
@@ -23,10 +23,15 @@ function FetchWeather() {
     }, [])
 
     return(
-        <>
+        <div>
             <h2 style={{ padding: 20 }}>Results...</h2>
-            {JSON.stringify(results)}
-        </>
+            <p>temp: {results.temp}</p>
+            <p>feels like: {results.feels_like}</p>
+            <p>temp min: {results.temp_min}</p>
+            <p>temp max: {results.temp_max}</p>
+            <p>pressure: {results.pressure}</p>
+            <p>humidity: {results.humidity}</p>
+        </div>
     )
 }
 
