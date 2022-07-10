@@ -12,8 +12,8 @@ app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('/api/weather', searchRouter);
-app.use('/api/', weatherRouter);
+app.use('/api/weather', weatherRouter);
+app.use('/api/search', searchRouter);
 
 
 /** ---------- START SERVER ---------- **/
