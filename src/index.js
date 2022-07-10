@@ -17,10 +17,23 @@ import logger from 'redux-logger';
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
-
+    yield takeEvery('FETCH_WEATHER', fetchWeather);
 }
 
-const weather = (state = {}, action) => {
+function* fetchWeather() {
+    try {
+        console.log('fetchWeather saga wired!');
+        
+
+    } catch(err) {
+        console.log('err in fetching weather', err);
+        
+    }
+}
+
+
+
+const weather = (state = [], action) => {
     if(action.type === 'SET_WEATHER') {
         return action.payload;
     }
