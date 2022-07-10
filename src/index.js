@@ -24,7 +24,7 @@ function* fetchWeather() {
     try {
         console.log('fetchWeather saga wired!');
 
-        const response = yield axios.get('/weather');
+        const response = yield axios.get('/api/weather');
         console.log('response.data:', response.data);
         const action = { type: 'SET_WEATHER', payload: response.data};
         yield put(action);

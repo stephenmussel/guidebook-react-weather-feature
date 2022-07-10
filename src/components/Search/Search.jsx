@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import axios from 'axios';
 
 function Search() {
 
@@ -8,6 +8,9 @@ function Search() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log('in handleSubmit!');
+
+        console.log('city input:', city);
+        setCity('');
 
     }
 
@@ -25,7 +28,6 @@ function Search() {
             />
             <input type="submit" value="Search" />
         </form>
-        <p>{city}</p>
         </>
     )
 }
