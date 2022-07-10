@@ -26,10 +26,11 @@ function* fetchSearch(action) {
         console.log('fetchSearch saga wired!');
         const response = action.payload;
         console.log('response:', response);
+
+        yield put({ type: 'SET_SEARCH', payload: response })
         
     } catch(err) {
         console.log('err in fetching search:', err);
-        
     }
 }
 
@@ -47,6 +48,15 @@ function* fetchWeather() {
     }
 }
 
+const search = (state = [], action) => {
+    switch(action.type) {
+        case 'SET_SEARCH':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const weather = (state = [], action) => {
     if(action.type === 'SET_WEATHER') {
         return action.payload;
@@ -57,6 +67,7 @@ const weather = (state = [], action) => {
 const store = createStore(
     combineReducers({
         weather,
+        search,
     }),
     applyMiddleware(logger, sagaMiddleware),
 );
