@@ -4,6 +4,7 @@ import axios from 'axios';
 function Search() {
 
     const [city, setCity] = useState('');
+    const [result, setResult] = useState([]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -12,8 +13,14 @@ function Search() {
         console.log('city input:', city);
         setCity('');
 
-
-    }
+        axios.post('/api/search', { city: city })
+            .then(response => {
+                console.log('this is result:', response);
+            })
+            .catch(err => {
+                console.log('err in search:', err);
+            });
+    };
 
     return(
         <>
