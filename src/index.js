@@ -18,6 +18,18 @@ const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
     yield takeEvery('FETCH_WEATHER', fetchWeather);
+    yield takeEvery('FETCH_SEARCH', fetchSearch);
+}
+
+function* fetchSearch(action) {
+    try {
+        console.log('fetchSearch saga wired!');
+        
+
+    } catch(err) {
+        console.log('err in fetching search:', err);
+        
+    }
 }
 
 function* fetchWeather() {
@@ -30,10 +42,9 @@ function* fetchWeather() {
         yield put(action);
 
     } catch(err) {
-        console.log('err in fetching weather', err);
+        console.log('err in fetching weather:', err);
     }
 }
-
 
 const weather = (state = [], action) => {
     if(action.type === 'SET_WEATHER') {

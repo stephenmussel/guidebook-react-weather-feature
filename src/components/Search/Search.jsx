@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 function Search() {
 
     const [city, setCity] = useState('');
-    const [result, setResult] = useState([]);
+    const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -15,7 +16,9 @@ function Search() {
 
         axios.post('/api/search', { city: city })
             .then(response => {
-                console.log('this is result:', response);
+                console.log('this is results:', response.data.list[0].dt); // unix UTC time of one 
+                // setResults(response.data)
+                dispatch({ type: 'FETCH_SEARCH', payload: response.data })
             })
             .catch(err => {
                 console.log('err in search:', err);
@@ -24,11 +27,10 @@ function Search() {
 
     return(
         <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ padding: 20 }}>
             <input 
                 placeholder="City" 
                 style={{ 
-                    marginLeft: 20, 
                     marginRight: 5 
                 }}
                 value={city}
@@ -36,6 +38,12 @@ function Search() {
             />
             <input type="submit" value="Search" />
         </form>
+
+        
+            
+        <div>
+
+        </div>
         </>
     )
 }
