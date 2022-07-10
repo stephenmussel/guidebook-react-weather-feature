@@ -12,6 +12,7 @@ function Search() {
         console.log('city input:', city);
         setCity('');
 
+
     }
 
     return(

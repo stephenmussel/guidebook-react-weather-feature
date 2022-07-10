@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    console.log('in router.get');
+    console.log('in weather router!');
 
     axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&units=imperial&appid=${process.env.OPEN_WEATHER}`)
         .then(response => {
