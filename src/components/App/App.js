@@ -13,7 +13,7 @@ function App() {
         <h1>Open Weather API</h1>
       </header>
       
-      <FetchWeather />
+      {/* <FetchWeather /> */}
       <Search />
     </div>
   );
